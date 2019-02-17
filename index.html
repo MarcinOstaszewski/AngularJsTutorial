@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test AngularJS App</title>
+</head>
+<style>
+    body {
+        font-size: 14px;
+    }
+    .text-big {
+        font-size: 22px;
+        font-weight: normal;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div>
+            {{ firstName + " " + lastName }}
+        </div>
+        
+        <div test-directive></div>
+        
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myCtrl", function($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Snow";
+        });
+
+        app.directive("testDirective", function() {
+            return {
+                template: "I was made in constructor!"
+            };
+        });
+
+    </script>
+
+</body>
+</html>
